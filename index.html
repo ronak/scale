@@ -31,11 +31,12 @@
       font-size: 24px;
     }
     
-    #tare {
+    #tareCon {
       position: fixed;
       top: 10px;
       left: 10px;
       display: none;
+      text-align: center;
     }
   </style>
 </head>
@@ -44,9 +45,13 @@
   <div id="forcearea">
     0 grams
   </div>
-  <button id="tare">
-    Tare
-  </button>
+  <div id="tareCon">
+    <strong>Tare:</strong>
+    <br>
+    <input id="tareValBox" type="range" value="0" min="0" max="385" oninput="updateTextInput(this.value);">
+    <br>
+    <span id="textInput">0 grams</span>
+  </div>
   <script>
     // based on https://github.com/freinbichler/3d-touch
     var element = document.getElementById('forcearea');
@@ -85,12 +90,13 @@
       } else {
         forceValue = 0;
       }
-      document.getElementById("tare").style.display = "inline-block";
+      document.getElementById("tareCon").style.display = "block";
       element.innerHTML = (Math.round(forceValue * 385) - tareVal) + " grams";
     }
 
-    function tare() {
-      tareVal = parseInt(element.innerHTML);
+    function updateTextInput(val) {
+      document.getElementById('textInput').innerText = val + " grams";
+      tareVal = val;
     }
 
     (function() {
@@ -99,7 +105,6 @@
       element.addEventListener('touchend', onTouchEnd, false);
       element.addEventListener('webkitmouseforcewillbegin', checkMacForce, false);
       element.addEventListener('webkitmouseforcechanged', checkMacForce, false);
-      document.getElementById("tare").addEventListener("touchstart", tare, false);
     })();
   </script>
 </body>

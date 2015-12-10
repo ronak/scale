@@ -48,7 +48,7 @@
   <div id="forcearea">
     <p id="forceAmount">0.00 grams</p>
     <div id="buttonarea">
-      <button id="tareButton" onclick="tare()">Tare</button>
+      <button id="tareButton">Tare</button>
     </div>
   </div>
 
@@ -70,8 +70,12 @@
     }
 
     function checkForce(e) {
-      touch = e.touches[0];
-      setTimeout(refreshforceValue.bind(touch), 10);
+      if (e.target.id == "buttonarea" || e.target.id == "tareButton") {
+        tare();
+      } else {
+        touch = e.touches[0];
+        setTimeout(refreshforceValue.bind(touch), 10);
+      }
     }
 
     function checkMacForce(e) {

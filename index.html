@@ -94,20 +94,12 @@
       //Remove the TareValue from the returned value
       forceTextElement.innerHTML = Math.round((ForceValue * 385) - TareValue) + " grams";
     }
-    function tareShortcut(e) {
-    // this would test for whichever key is 116 and the ctrl key at the same time
-      if (e.ctrlKey && e.keyCode == 116) {
-        // call your function to do the thing
-        pauseSound();
-      }
-    }
     (function() {
       touchElement.addEventListener('touchstart', onTouchStartMove, false);
       touchElement.addEventListener('touchmove', onTouchStartMove, false);
       touchElement.addEventListener('touchend', onTouchEnd, false);
       touchElement.addEventListener('webkitmouseforcewillbegin', checkMacForce, false);
       touchElement.addEventListener('webkitmouseforcechanged', checkMacForce, false);
-      document.addEventListener('keyup', tareShortcut, false);
     })();
   </script>
 </body>

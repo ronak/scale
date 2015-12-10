@@ -45,7 +45,7 @@
 
 <body>
   <div id="forcearea">
-    <p id = 'forceAmount'>0 grams</p>
+    <p id="forceAmount">0 grams</p>
     <div id="buttonarea">
       <button id="tareButton" accesskey="T">Tare</button>
     </div>
@@ -98,7 +98,7 @@
     // this would test for whichever key is 116 and the ctrl key at the same time
       if (e.ctrlKey && e.keyCode == 116) {
         // call your function to do the thing
-        pauseSound();
+        document.getElementById("tareButton").click()
       }
     }
     (function() {

@@ -46,7 +46,7 @@
 
 <body>
   <div id="forcearea">
-    <p id="forceAmount">0 grams</p>
+    <p id="forceAmount">0.00 grams</p>
     <div id="buttonarea">
       <button id="tareButton" onclick="tare">Tare</button>
     </div>
@@ -77,7 +77,7 @@
     function checkMacForce(e) {
       // max value for trackpad is 3.0 compare to 1.0 on iOS
       forceValue = e.webkitForce / 3;
-      forceTextElement.innerHTML = Math.round((forceValue - tareValue) * 1000) + " <br><sup style=\"color:red\">Uncalibrated for Mac, press \"t\" to tare.</sup>";
+      forceTextElement.innerHTML = ((forceValue - tareValue) * 1000).toFixed(2) + " <br><sup style=\"color:red\">Uncalibrated for Mac, press \"t\" to tare.</sup>";
     }
 
     function refreshforceValue() {
@@ -89,7 +89,7 @@
         setTimeout(refreshforceValue.bind(touch), 10);
       }
       //Remove the tareValue from the returned value
-      forceTextElement.innerHTML = Math.round((forceValue - tareValue) * 385) + " grams";
+      forceTextElement.innerHTML = ((forceValue - tareValue) * 385).toFixed(2) + " grams";
     }
 
     function keypress(e) {

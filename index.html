@@ -85,7 +85,7 @@
 
       forceValue = 0;
       if (touchEvent) {
-        forceValue = (touchEvent.force || 0) * 385;
+        forceValue = touchEvent.force || 0;
         setTimeout(refreshforceValue.bind(touch), 10);
       }
       //Remove the tareValue from the returned value

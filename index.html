@@ -26,20 +26,17 @@
       left: 0;
       right: 0;
       background-color: #e3e3e3;
-      padding-top: 200px;
+      padding-top: 10px;
       text-align: center;
       font-size: 24px;
     }
     
-    #buttonarea {
-      position: fixed;
-      top: 280;
-      left: 0;
-      right: 0;
-      background-color: #e3e3e3;
-      text-align: center;
-      font-size: 24px;
-      z-index: 1;
+    #forcearea p {
+      margin: 0;
+    }
+    
+    #forcearea span {
+      font-size: 12px;
     }
   </style>
 </head>
@@ -81,7 +78,7 @@
     function checkMacForce(e) {
       // max value for trackpad is 3.0 compare to 1.0 on iOS
       forceValue = e.webkitForce / 3;
-      forceTextElement.innerHTML = ((forceValue - tareValue) * 1000).toFixed(2) + " <br><sup style=\"color:red\">Uncalibrated for Mac, press \"t\" to tare.</sup>";
+      forceTextElement.innerHTML = ((forceValue - tareValue) * 1000).toFixed(2) + " <br><span style=\"color:red\">Uncalibrated for Mac, press \"t\" to tare.</span>";
     }
 
     function refreshforceValue() {
